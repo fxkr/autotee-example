@@ -1,0 +1,21 @@
+---
+
+server:
+  url: "http://localhost:9876/stat"
+  app: "stream"
+  type: "nginx-rtmp"
+
+source_buffer:
+  buffer_count: 64
+  buffer_size: 131072
+
+sink_buffer:
+  buffer_count: 24
+
+flows:
+  "video":
+    regexp: "^mp4:demo.mp4$"
+    source: "ffmpeg -i rtmp://localhost:1935/stream/demo.mp4 -target pal-dv -"
+    sinks:
+      "video1": "mplayer -"
+

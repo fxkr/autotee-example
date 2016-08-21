@@ -2,3 +2,8 @@
 *.swp
 *.tmp
 *~
+
+/nginx-rtmp
+/src
+/pkg
+
